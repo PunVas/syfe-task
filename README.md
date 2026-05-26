@@ -3,7 +3,7 @@
 ```bash
 curl -i -X POST https://syfe-task.onrender.com/api/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"username":"puneet@example.com","password":"password123","fullName":"Puneet","phoneNumber":"1234567890"}'
+  -d '{"username":"shubham@example.com","password":"password123","fullName":"Shubham","phoneNumber":"1234567890"}'
 
 ```
 
@@ -12,7 +12,7 @@ curl -i -X POST https://syfe-task.onrender.com/api/auth/register \
 ```bash
 curl -i -X POST https://syfe-task.onrender.com/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"username":"puneet@example.com","password":"password123"}' \
+  -d '{"username":"shubham@example.com","password":"password123"}' \
   -c cookies.txt
 
 ```
@@ -67,7 +67,3 @@ curl -i -X GET https://syfe-task.onrender.com/api/goals -b cookies.txt
 curl -i -X GET https://syfe-task.onrender.com/api/reports/monthly/2026/5 -b cookies.txt
 
 ```
-
----
-
-> If the service hasn't received traffic recently, Render spin-up times on the free tier can take up to 50 seconds. If your first request times out or takes a moment, just give it a few seconds to wake up!
