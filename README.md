@@ -1,0 +1,73 @@
+### 1. Register a new user
+
+```bash
+curl -i -X POST https://syfe-task.onrender.com/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"username":"puneet@example.com","password":"password123","fullName":"Puneet","phoneNumber":"1234567890"}'
+
+```
+
+### 2. Log in (saves the session cookie in `cookies.txt`)
+
+```bash
+curl -i -X POST https://syfe-task.onrender.com/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"puneet@example.com","password":"password123"}' \
+  -c cookies.txt
+
+```
+
+### 3. Fetch default + custom categories (reads the cookie from `cookies.txt`)
+
+```bash
+curl -i -X GET https://syfe-task.onrender.com/api/categories -b cookies.txt
+
+```
+
+### 4. Add a custom category
+
+```bash
+curl -i -X POST https://syfe-task.onrender.com/api/categories \
+  -b cookies.txt \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Bonus","type":"INCOME"}'
+
+```
+
+### 5. Add a transaction
+
+```bash
+curl -i -X POST https://syfe-task.onrender.com/api/transactions \
+  -b cookies.txt \
+  -H "Content-Type: application/json" \
+  -d '{"amount":5000.00,"date":"2026-05-23","categoryName":"Salary","description":"May Salary Payout"}'
+
+```
+
+### 6. Create a Savings Goal
+
+```bash
+curl -i -X POST https://syfe-task.onrender.com/api/goals \
+  -b cookies.txt \
+  -H "Content-Type: application/json" \
+  -d '{"goalName":"MacBook","targetAmount":2000.00,"targetDate":"2026-12-31"}'
+
+```
+
+### 7. Fetch Savings Goal & Live Progress
+
+```bash
+curl -i -X GET https://syfe-task.onrender.com/api/goals -b cookies.txt
+
+```
+
+### 8. Generate a Monthly Report
+
+```bash
+curl -i -X GET https://syfe-task.onrender.com/api/reports/monthly/2026/5 -b cookies.txt
+
+```
+
+---
+
+> If the service hasn't received traffic recently, Render spin-up times on the free tier can take up to 50 seconds. If your first request times out or takes a moment, just give it a few seconds to wake up!
